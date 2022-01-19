@@ -1,0 +1,72 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.login-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #4285f4;
+  display: flex;
+  align-items: center;
+}
+
+.login-bg {
+  width: 385px;
+  height: 385px;
+}
+
+.wrapper-text {
+  margin-top: 150px;
+}
+
+.wrapper-text .title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 51px;
+  color: #ffffff;
+}
+
+.wrapper-text .subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ffffff;
+}
+
+.wrapper-text p {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 19px;
+  color: #ffffff;
+  margin-top: 22px;
+}
+
+.wrapper-image {
+  margin-top: 25px;
+}
+
+.wrapper-card {
+  margin-top: 79px;
+  margin-left: 49px;
+}
+
+.card {
+  max-width: 539px;
+  min-height: 600px;
+  background: #ffffff;
+  box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.08);
+  border-radius: 40px;
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+}
+/* .card form {
+  margin-top: auto;
+  margin-bottom: auto;
+} */
