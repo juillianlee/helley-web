@@ -14,9 +14,11 @@ import styles from "./tailwind.css";
 
 export function loader() {
   axios.defaults.baseURL = process.env.API_URL;
+  console.log(process.env.API_URL);
   return {
     API_URL: process.env.API_URL
   };
+  
 }
 
 export function links() {
