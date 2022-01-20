@@ -4,14 +4,20 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
+  useLoaderData
 } from "remix";
 import type { MetaFunction } from "remix";
-
-import styles from "./tailwind.css";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.API_URL;
+import styles from "./tailwind.css";
+
+export function loader() {
+  axios.defaults.baseURL = process.env.API_URL;
+  return {
+    API_URL: process.env.API_URL
+  };
+}
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
@@ -22,6 +28,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function App() {
+  const loaderData = useLoaderData();
+  axios.defaults.baseURL = loaderData.API_URL;
   return (
     <html lang="en">
       <head>
