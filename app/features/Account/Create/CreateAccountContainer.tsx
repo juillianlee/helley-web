@@ -1,8 +1,12 @@
-import { Link } from "remix";
+import { Link, useActionData } from "remix";
+import AlertError from "~/components/Alerts/AlertError";
+import AlertSuccess from "~/components/Alerts/AlertSuccess";
 import bgLogin from "~/images/login-background.png";
 import CreateAccountForm from "./CreateAccountForm";
 
 const CreateAccountContainer = () => {
+  const actionData = useActionData();
+
   return (
     <div className="login-container">
       <div className="container mx-auto flex">
@@ -26,9 +30,21 @@ const CreateAccountContainer = () => {
               <span className="text-blue-500 font-medium">Helley</span>
             </div>
             <div className="card-subtitle text-5xl font-medium">Sign up</div>
+            <div className="mt-8">
+              {actionData?.errors && (
+                <AlertError message={actionData.errors.message} />
+              )}
+              {!actionData?.errors && actionData?.message && (
+                <AlertSuccess message={actionData.message} />
+              )}
+            </div>
+            
             <CreateAccountForm />
             <div className="create-account mt-10 text-center text-xl">
-              You have an register? <Link to={"/sign-in"} className="font-bold">Sign in</Link>
+              You have an register?{" "}
+              <Link to={"/sign-in"} className="font-bold">
+                Sign in
+              </Link>
             </div>
           </div>
         </div>
@@ -36,6 +52,5 @@ const CreateAccountContainer = () => {
     </div>
   );
 };
-
 
 export default CreateAccountContainer;

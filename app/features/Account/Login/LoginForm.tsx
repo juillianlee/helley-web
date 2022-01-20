@@ -6,10 +6,10 @@ const LoginForm = () => {
     <Form className="flex flex-col mt-8" method="post">
       <div className="form-control">
         <label className="mb-3 block">
-          Enter your username or email address
+          Enter your email address
         </label>
         <input
-          type="text"
+          type="email"
           name="username"
           className="form-input px-4 py-3 rounded-md w-full"
         />

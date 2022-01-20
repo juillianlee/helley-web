@@ -1,8 +1,11 @@
 import LoginForm from "./LoginForm";
 import bgLogin from "~/images/login-background.png";
-import { Link } from "remix";
+import { Link, useActionData } from "remix";
+import AlertError from "~/components/Alerts/AlertError";
+import AlertSuccess from "~/components/Alerts/AlertSuccess";
 
 const LoginContainer = () => {
+  const actionData = useActionData();
   return (
     <div className="login-container">
       <div className="container mx-auto flex">
@@ -26,6 +29,14 @@ const LoginContainer = () => {
               <span className="text-blue-500 font-medium">Helley</span>
             </div>
             <div className="card-subtitle text-5xl font-medium">Sign in</div>
+            <div className="mt-8">
+              {actionData?.errors && (
+                <AlertError message={actionData.errors.message} />
+              )}
+              {!actionData?.errors && actionData?.message && (
+                <AlertSuccess message={actionData.message} />
+              )}
+            </div>
             <LoginForm />
             <div className="create-account mt-10 text-center text-xl">
               Don’y have an Account? <Link to={"/sign-up"} className="font-bold">Register</Link>

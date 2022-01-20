@@ -9,6 +9,9 @@ import {
 import type { MetaFunction } from "remix";
 
 import styles from "./tailwind.css";
+import axios from "axios";
+
+axios.defaults.baseURL = 'http://localhost:8000';
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];

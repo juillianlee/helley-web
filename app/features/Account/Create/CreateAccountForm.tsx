@@ -6,11 +6,21 @@ const CreateAccountForm = () => {
     <Form className="flex flex-col mt-8" method="post">
       <div className="form-control">
         <label className="mb-3 block">
-          Enter your username or email address
+          Enter your Name
         </label>
         <input
           type="text"
-          name="username"
+          name="name"
+          className="form-input px-4 py-3 rounded-md w-full"
+        />
+      </div>
+      <div className="form-control mt-8">
+        <label className="mb-3 block">
+          Enter your email address
+        </label>
+        <input
+          type="email"
+          name="email"
           className="form-input px-4 py-3 rounded-md w-full"
         />
       </div>
@@ -26,7 +36,7 @@ const CreateAccountForm = () => {
         <label className="mb-3 block">Confirm Password</label>
         <input
           type="password"
-          name="password"
+          name="confirmPassword"
           className="form-input px-4 py-3 rounded-md w-full"
         />
       </div>
