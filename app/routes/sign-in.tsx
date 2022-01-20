@@ -1,10 +1,9 @@
-
 import axios from "axios";
-import { json } from "remix";
+import { json, redirect } from "remix";
+import { commitSession, getSession } from "~/config/session.server";
 import { AccountApi } from "~/features/Account";
 import LoginContainer from "~/features/Account/Login/LoginContainer";
 import styles from "~/styles/login.css";
-
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
@@ -18,10 +17,15 @@ export const action = async ({ request }: any) => {
       password: formData.password,
     });
     const { data } = response;
+    
+    const session = await getSession(request.headers.get("Cookie"));
+    session.set("access_token", data.AccessToken);
+    session.set("refresh_token", data.RefreshToken);
 
-    return json({
-      message: "Login realizado com sucesso",
-      ...data
+    return redirect("/", {
+      headers: {
+        "Set-Cookie": await commitSession(session),
+      },
     });
   } catch (err) {
     if (axios.isAxiosError(err) && err.response) {
@@ -48,7 +52,5 @@ export const action = async ({ request }: any) => {
 };
 
 export default function () {
-  return (
-    <LoginContainer />
-  );
+  return <LoginContainer />;
 }
