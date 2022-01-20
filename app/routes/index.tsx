@@ -98,7 +98,7 @@ export default function Index() {
   return (
     <>
       <MenuHeader />
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex mt-10 pb-10">
+      <div className="max-w-screen-2xl mx-auto px-2 sm:px-6 lg:px-8 flex mt-10 pb-10">
         <div className="w-3/12">
           <div className="card px-5 py-10">
             <div className="flex -space-x-1 overflow-hidden justify-center">
