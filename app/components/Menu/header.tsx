@@ -30,7 +30,7 @@ function classNames(...classes: any[]) {
 
 export default function MenuHeader() {
   return (
-    <Disclosure as="nav" className="bg-white drop-shadow-xl	py-4">
+    <Disclosure as="nav" className="bg-white drop-shadow-xl	py-1">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
