@@ -11,7 +11,7 @@ import type { MetaFunction } from "remix";
 import styles from "./tailwind.css";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = process.env.API_URL;
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
