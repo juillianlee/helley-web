@@ -8,8 +8,8 @@ export interface HomeContractsProps {
 const HomeContacts = ({ peoples }: HomeContractsProps) => {
   return (
     <section className="contacts mt-10">
-      <div className="title text-zinc-600 text-2xl font-normal mb-2">
-        Online Contacts
+      <div className="title text-zinc-600 text-xl font-normal mb-2">
+        Contacts
       </div>
       <div className="card p-0">
         <table className="min-w-full divide-y divide-gray-200">
